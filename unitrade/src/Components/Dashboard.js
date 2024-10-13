@@ -85,7 +85,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showAddItem, setShowAddItem] = useState(false);
-const [dropdownLabel, setDropdownLabel] = useState('Menu');
+  const [dropdownLabel, setDropdownLabel] = useState('Location');
 
   const handleDropdownSelect = (option) => {
     setDropdownLabel(option);
@@ -106,19 +106,18 @@ const [dropdownLabel, setDropdownLabel] = useState('Menu');
           <h5 style={{ color: '#840132', fontWeight: "700" }}>Sponsored</h5>
           <p style={{ color: 'black' }}>Check out the latest tech gear at unbeatable prices.</p>
         </div>
+        <div className="p-3 rounded shadow-sm mb-4" style={{ backgroundColor: "white" }}>
+          <h5 style={{ color: '#840132', fontWeight: "700" }}>Library Announcement</h5>
+          <p style={{ color: 'black' }}>New research journals and e-books available for all students.</p>
+        </div>
+        <div className="p-3 rounded shadow-sm mb-4" style={{ backgroundColor: "white" }}>
+          <h5 style={{ color: '#840132', fontWeight: "700" }}>Student Workshop</h5>
+          <p style={{ color: 'black' }}>Attend the Coding Bootcamp for Beginners - Register now!</p>
+        </div>
       </div>
 
       <div className="col-md-8 position-relative bg-white border shadow-sm rounded p-4 hide-scrollbar" >
-      <div className="dropdown position-absolute top-0 start-0 m-3">
-          <button
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            {dropdownLabel} {/* Dropdown label dynamically changes */}
-          </button>
+        <div className="dropdown position-absolute top-0 start-0 m-3">
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><button className="dropdown-item" onClick={() => handleDropdownSelect('Troy')}>Troy </button></li>
             <li><button className="dropdown-item" onClick={() => handleDropdownSelect('Troy - Dothan')}>Troy - Dothan</button></li>
@@ -129,13 +128,6 @@ const [dropdownLabel, setDropdownLabel] = useState('Menu');
           <img style={{ width: "70px", height: "70px" }} src={logo}></img>
         </div>
         <div>
-          <button
-            className="btn position-absolute top-0 end-0 m-3"
-            style={{ width: "20%", backgroundColor: "#500221", color: "white" }}
-            onClick={() => setShowAddItem(true)}
-          >
-            Add Item
-          </button>
           <h1 className="text-center mb-4" style={{ color: '#840132', fontWeight: "700" }}>MarketPlace</h1>
         </div>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -151,9 +143,16 @@ const [dropdownLabel, setDropdownLabel] = useState('Menu');
         {showAddItem && <AddItemModal onClose={() => setShowAddItem(false)} />}
       </div>
 
-      <div className="col-md-1 p-4" style={{ backgroundColor: "#500221" }}>
+      <div className="col-sm-2 p-4" style={{ backgroundColor: "#500221" }}>
         {/* Display more ads or content */}
-        <p style={{ color: "white", position: "absolute", bottom: "0", marginBottom: "10px", cursor: "pointer" }} onClick={() => {navigate('/login'); }}>Log Out</p>
+        <p style={{ color: "white", cursor: "pointer", fontWeight: "700" }} onClick={() => setShowAddItem(true)}>Add Item</p>
+        <select onChange={(e) => handleDropdownSelect(e.target.value)} style={{ backgroundColor: "#500221", color: "white", fontWeight: "700", width: "45%", height: "3%" }}>
+          <option value={""}>Location</option>
+          <option value={"Troy"}>Troy</option>
+          <option value={"Troy - Dothan"}>Troy - Dothan</option>
+          <option value={"Troy - Montgomery"}>Troy - Montgomery</option>
+        </select>
+        <p style={{ color: "white", position: "absolute", bottom: "0", marginBottom: "10px", cursor: "pointer", fontWeight: "700" }} onClick={() => { navigate('/login'); }}>Log Out</p>
       </div>
     </div>
   );
