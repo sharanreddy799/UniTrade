@@ -5,6 +5,7 @@ import swal from "sweetalert";
 import AWS from "aws-sdk";
 import { useNavigate } from 'react-router-dom';
 import { AccessID, SecretID } from './common';
+import logo from './Images/logo.png';
 const SignupPage = () => {
   const navigate = useNavigate();
   const [emailID, setEmailID] = useState("");
@@ -51,7 +52,7 @@ const SignupPage = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <img src="./Images/logo.png" />
+        <img src={logo} />
         <h2>Signup for University Marketplace</h2>
         <form>
           <div className="form-group">

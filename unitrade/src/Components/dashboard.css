@@ -1,3 +1,12 @@
 .dashboard-bg {
     background-image: url("../Images//quad-fountain.jpg");
   }
+
+  .hide-scrollbar {
+    overflow: auto;
+    max-height: 100vh;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }

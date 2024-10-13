@@ -5,6 +5,7 @@ import ItemModal from './ItemModal';
 import AddItemModal from './AddItemModal';
 import './dashboard.css';
 import logo from '../Images/mytroy.png';
+import { useNavigate } from 'react-router-dom';
 const staticProducts = [
   {
     id: 1,
@@ -73,6 +74,7 @@ const staticProducts = [
 ];
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showAddItem, setShowAddItem] = useState(false);
 
@@ -88,9 +90,13 @@ const Dashboard = () => {
           <h5 style={{ color: '#840132', fontWeight: "700" }}>Advertisement</h5>
           <p style={{ color: 'black' }}>New Gadgets Collection Available Now!</p>
         </div>
+        <div className="p-3 rounded shadow-sm mb-4" style={{ backgroundColor: "white" }}>
+          <h5 style={{ color: '#840132', fontWeight: "700" }}>Sponsored</h5>
+          <p style={{ color: 'black' }}>Check out the latest tech gear at unbeatable prices.</p>
+        </div>
       </div>
 
-      <div className="col-md-6 position-relative bg-white border shadow-sm rounded p-4" style={{ maxHeight: "100vh", overflowY: "auto" }}>
+      <div className="col-md-8 position-relative bg-white border shadow-sm rounded p-4 hide-scrollbar" >
         <div style={{ textAlign: 'center' }}>
           <img style={{ width: "70px", height: "70px" }} src={logo}></img>
         </div>
@@ -117,12 +123,9 @@ const Dashboard = () => {
         {showAddItem && <AddItemModal onClose={() => setShowAddItem(false)} />}
       </div>
 
-      <div className="col-md-3 p-4" style={{ backgroundColor: "#500221" }}>
+      <div className="col-md-1 p-4" style={{ backgroundColor: "#500221" }}>
         {/* Display more ads or content */}
-        <div className="p-3 rounded shadow-sm mb-4" style={{ backgroundColor: "white" }}>
-          <h5 style={{ color: '#840132', fontWeight: "700" }}>Sponsored</h5>
-          <p style={{ color: 'black' }}>Check out the latest tech gear at unbeatable prices.</p>
-        </div>
+        <p style={{ color: "white", position: "absolute", bottom: "0", marginBottom: "10px", cursor: "pointer" }} onClick={() => {navigate('/login'); }}>Log Out</p>
       </div>
     </div>
   );
