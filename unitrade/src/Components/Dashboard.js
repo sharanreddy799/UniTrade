@@ -4,6 +4,7 @@ import ItemCard from './ItemCard';
 import ItemModal from './ItemModal';
 import AddItemModal from './AddItemModal';
 import './dashboard.css';
+import logo from '../Images/mytroy.png';
 const staticProducts = [
   {
     id: 1,
@@ -90,14 +91,19 @@ const Dashboard = () => {
       </div>
 
       <div className="col-md-6 position-relative bg-white border shadow-sm rounded p-4" style={{ maxHeight: "100vh", overflowY: "auto" }}>
-        <button
-          className="btn btn-primary position-absolute top-0 end-0 m-3"
-          style={{ width: "20%" }}
-          onClick={() => setShowAddItem(true)}
-        >
-          Add Item
-        </button>
-        <h1 className="text-center mb-4">Product Listings</h1>
+        <div style={{ textAlign: 'center' }}>
+          <img style={{ width: "70px", height: "70px" }} src={logo}></img>
+        </div>
+        <div>
+          <button
+            className="btn position-absolute top-0 end-0 m-3"
+            style={{ width: "20%", backgroundColor: "#500221", color: "white" }}
+            onClick={() => setShowAddItem(true)}
+          >
+            Add Item
+          </button>
+          <h1 className="text-center mb-4" style={{ color: '#840132', fontWeight: "700" }}>MarketPlace</h1>
+        </div>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {staticProducts.map((product) => (
             <ItemCard key={product.id} product={product} onClick={() => setSelectedProduct(product)} />
