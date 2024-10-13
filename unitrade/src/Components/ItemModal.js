@@ -25,7 +25,9 @@ const ItemModal = ({ product, onClose }) => {
             </div>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onClose}>Close</button>
+            <button type="button" className='btn' style={{ color: "white", backgroundColor: "#007bff" }} onClick={onClose}>Chat</button>
+            <button type="button" className='btn' style={{ color: "white", backgroundColor: "#ffc107" }} onClick={onClose}>Report</button>
+            <button type="button" className='btn' style={{ color: "white", backgroundColor: "#c82333" }} onClick={onClose}>Close</button>
           </div>
         </div>
       </div>

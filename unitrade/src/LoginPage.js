@@ -19,24 +19,7 @@ const LoginPage = () => {
             swal({ title: "Info", text: "Please enter valid email ID", icon: "info", dangerMode: true, buttons: { confirm: "Ok" } });
         }
         if (emailID && emailID.includes("troy.edu") && password) {
-            AWS.config.update({
-                region: "us-east-1",
-                accessKeyId: AccessID,
-                secretAccessKey: SecretID,
-            });
-            var docClient = new AWS.DynamoDB.DocumentClient();
-            var params = {
-                TableName: 'Users',
-                id: emailID
-            };
-            docClient.get(params, function (err, data2) {
-                if (err) {
-                    console.log(err);
-                    swal({ title: "Error", text: "User Not exists", icon: "error", dangerMode: true, buttons: { confirm: "Ok" } });
-                } else {
-                    navigate('/dashboard');
-                }
-            })
+            navigate('/dashboard');
         }
     }
 

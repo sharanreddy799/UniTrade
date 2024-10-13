@@ -54,7 +54,7 @@ const AddItemModal = ({ onClose }) => {
                 )}
               </div>
               <button type="submit" className="btn btn-primary">Add Item</button>
-              <button type="button" className="btn btn-secondary ms-2" onClick={onClose}>Cancel</button>
+              <button type="button" style={{ marginTop: "10px", width: "100%" }} className="btn btn-secondary" onClick={onClose}>Cancel</button>
             </form>
           </div>
         </div>
